@@ -62,10 +62,10 @@ Completa el código para poder obtener el conjunto de datos `palabras` para lueg
   
 ```{r}
 palabras <- titulos %>%
-  _____________(word, titulo) %>%
-  _____________(variosIdiomas_stop_words) %>%
+  unnest_tokens(word, titulo) %>%
+  anti_join(variosIdiomas_stop_words) %>%
   count(word) %>%
-  _____________(n>10)
+  filter(n>10)
 
 
 ```
@@ -73,7 +73,7 @@ palabras <- titulos %>%
 Agregamos el código para visualizar el set de datos, las primeras 15 filas.
 
 ```{r}
-________(palabras, n=________)
+________(palabras, n=15)
 
 ```
 
